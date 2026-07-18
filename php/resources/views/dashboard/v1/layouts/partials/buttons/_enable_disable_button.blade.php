@@ -1,0 +1,1 @@
+<button class="btn btn-primary" type="button" onclick="confirm('are you sure you want to {{$verbtxt}} {{$name}}') ? window.location.href='{{$route}}' : false;" >{{$buttontxt}}</button>

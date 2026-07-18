@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Repositories\SQL;
+
+use App\Models\{{modelName}};
+use App\Repositories\Contracts\{{modelName}}Contract;
+
+class {{modelName}}Repository extends BaseRepository implements {{modelName}}Contract
+{
+    /**
+     * {{modelName}}Repository constructor.
+     * @param {{modelName}} $model
+     */
+    public function __construct({{modelName}} $model)
+    {
+        parent::__construct($model);
+    }
+
+    /**
+     * Check if model has relations with any other tables
+     * @param {{modelName}} $model
+     * @return int
+     */
+     public function relatedData({{modelName}} $model)
+     {
+        return 0;
+     }
+}

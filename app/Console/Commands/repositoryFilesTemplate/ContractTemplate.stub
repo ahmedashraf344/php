@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Repositories\Contracts;
+use App\Models\{{modelName}};
+
+interface {{modelName}}Contract extends BaseContract
+{
+    public function relatedData({{modelName}} $model);
+}
+

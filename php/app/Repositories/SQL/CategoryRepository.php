@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Repositories\SQL;
+
+use App\Models\Category;
+use App\Repositories\Contracts\CategoryContract;
+
+class CategoryRepository extends BaseRepository implements CategoryContract
+{
+    /**
+     * CategoryRepository constructor.
+     * @param Category $model
+     */
+    public function __construct(Category $model)
+    {
+        parent::__construct($model);
+    }
+
+    /**
+     * Check if model has relations with any other tables
+     * @param Category $model
+     * @return int
+     */
+     public function relatedData(Category $model)
+     {
+        return 0;
+     }
+}

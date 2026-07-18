@@ -1,0 +1,109 @@
+<?php
+
+namespace App\Http\Controllers\Api{{namespace}};
+
+use App\Http\Controllers\BaseApiController;
+use App\Http\Requests\Api{{namespace}}\{{modelName}}Request;
+use App\Http\Resources\{{modelName}}Resource;
+use App\Models\{{modelName}};
+use App\Repositories\Contracts\{{modelName}}Contract;
+
+class {{modelName}}Controller extends BaseApiController
+{
+
+   /**
+    * {{modelName}}Controller constructor.
+    * @param {{modelName}}Contract $repository
+    */
+   /*public function __construct({{modelName}}Contract $repository)
+   {
+        parent::__construct($repository, {{modelName}}Resource::class);
+   }*/
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\JsonResponse|mixed
+     */
+    public function index()
+    {
+        //$filters = [];
+
+        //${{modelObject}}List = $this->repository->search($filters, [], true, true, 10, 'id', 'desc');
+        ${{modelObject}}List = {{modelName}}::orderByDesc('id')->get();
+
+        return json_response([
+           '{{modelObject}}List'=>{{modelName}}Resource::collection(${{modelObject}}List)
+        ]);
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param {{modelName}}Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store({{modelName}}Request $request)
+    {
+       //
+    }
+
+
+   /**
+    * Display the specified resource.
+    *
+    * @param {{modelName}} ${{modelObject}}
+    *
+    * @return \Illuminate\Http\JsonResponse|mixed
+    */
+   public function show({{modelName}} ${{modelObject}})
+   {
+      return json_response([
+          '{{modelObject}}'=>new {{modelName}}Resource(${{modelObject}})
+      ]);
+   }
+
+   /**
+    * Show the form for editing the specified resource.
+    *
+    * @param {{modelName}} ${{modelObject}}
+    *
+    * @return \Illuminate\Http\JsonResponse|mixed
+    */
+   public function edit({{modelName}} ${{modelObject}})
+   {
+      return json_response([
+          '{{modelObject}}'=>new {{modelName}}Resource(${{modelObject}})
+      ]);
+   }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param {{modelName}}Request $request
+     * @param {{modelName}} ${{modelObject}}
+     *
+     */
+    public function update({{modelName}}Request $request, {{modelName}} ${{modelObject}})
+    {
+        //
+    }
+
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param {{modelName}} ${{modelObject}}
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy({{modelName}} ${{modelObject}})
+    {
+        //
+    }
+}
